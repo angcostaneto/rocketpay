@@ -19,6 +19,7 @@ defmodule Rocketpay.Numbers do
   # defp handle_file({:error, _reason}), do: {:error, "Invalid File!"}
   defp handle_file({:ok, result}) do
     result =
+        # This is pipe operator, where thew first argument in each line is result
         result
         |> String.split(",")
         # Stream only executes when is necessary, he is a lazy operator
