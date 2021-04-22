@@ -13,7 +13,7 @@ services:
       # Variables to connect to our Postgres server
       PGUSER: postgres
       PGPASSWORD: postgres
-      PGDATABASE: database_name
+      PGDATABASE: rocketpay
       PGPORT: 5432
       # Hostname of our Postgres container
       PGHOST: db
@@ -23,6 +23,7 @@ services:
     depends_on:
       # The db container needs to be started before we start this container
       - db
+
   db:
     # We use the predefined Postgres image
     image: postgres:9.6
@@ -35,6 +36,15 @@ services:
     restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer:4.8.0
+    ports:
+      - 8081:8080
+    restart: always
+    depends_on:
+      - db
+
 # Define the volumes
 volumes:
   pgdata:
