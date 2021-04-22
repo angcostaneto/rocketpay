@@ -1,5 +1,8 @@
 defmodule Rocketpay.NumbersTest do
+  # Every tests is necessary to use the following module
   use ExUnit.Case
+
+  # Alias for module that will be tested
   alias Rocketpay.Numbers
 
   # name of function with slash and numbers of arguments
